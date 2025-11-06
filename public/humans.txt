@@ -1,0 +1,30 @@
+ABOUT PROJECT
+ - name: Backrooms Wiki
+ - type: Wiki
+ - description: A next-gen wiki built from scratch, fully dedicated to the Backrooms
+ - fonts: Geist, Orbitron
+ - license: AGPL-3.0 License
+
+DEVELOPMENT
+ - authors: Flávio Henrique
+ - languages: TypeScript
+ - framework: Node.js, Next.js
+ - package manager: Bun
+ - libs: i18next, TailwindCSS
+ - tools: Visual Studio Code, Git
+
+DESIGN
+ - authors: Flávio Henrique
+ - tools: Figma, Canva, Google Fonts
+
+CONTENT DESCRIPTIONS
+ - authors: Flávio Henrique
+ - interest: Technology
+
+CONTACT
+ - owner: Flávio Henrique Perusin de souza
+ - birthdate: 28/04/2008 (DD/MM/YYYY)
+ - email: flaviohps28@gmail.com
+ - linkedin: https://www.linkedin.com/in/flavioow
+ - Github: https://github.com/flavioow
+ - Site: https://flavioow.vercel.app/
