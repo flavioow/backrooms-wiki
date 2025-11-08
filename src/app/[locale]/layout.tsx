@@ -3,6 +3,9 @@ import { Geist, Orbitron } from "next/font/google"
 import "@/styles/globals.css"
 import "@/styles/layout.css"
 import "@/styles/fonts.css"
+import { notFound } from "next/navigation"
+import { hasLocale, NextIntlClientProvider } from "next-intl"
+import { routing } from "@/i18n/routing"
 
 export const metadata: Metadata = {
   title: "Backrooms",
@@ -38,16 +41,25 @@ const orbitron = Orbitron({
   variable: "--font-secondary",
 })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode
-}>) {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+
+  if (!hasLocale(routing.locales, locale)) notFound()
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geist.variable} ${orbitron.variable} ${geist.className}`}>
-        {children}
+        <NextIntlClientProvider locale={locale}>
+          {" "}
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   )

@@ -1,35 +1,32 @@
 {
-    "short_name": "Backrooms",
-    "name": "Backrooms Wiki",
-    "description": "A next-gen wiki built from scratch, fully dedicated to the Backrooms",
-    "start_url": ".",
-    "scope": ".",
-    "id": "/",
-    "theme_color": "#a13d22",
-    "background_color": "#fafafa",
-    "lang": "en",
-    "orientation": "portrait",
-    "display": "standalone",
-    "prefer_related_applications": false,
-    "display_override": [
-        "window-controls-overlay",
-        "standalone"
-    ],
-    "categories": [
-        "backrooms",
-        "levels",
-        "entities",
-        "groups",
-        "objects",
-        "wiki",
-        "database",
-        "liminal",
-        "comunity"
-    ],
-    "protocol_handlers": [
-        {
-            "protocol": "web+backrooms",
-            "url": "/?url=%s"
-        }
-    ]
+  "short_name": "Backrooms",
+  "name": "Backrooms Wiki",
+  "description": "A next-gen wiki built from scratch, fully dedicated to the Backrooms",
+  "start_url": ".",
+  "scope": ".",
+  "id": "/",
+  "theme_color": "#a13d22",
+  "background_color": "#fafafa",
+  "lang": "en",
+  "orientation": "portrait",
+  "display": "standalone",
+  "prefer_related_applications": false,
+  "display_override": ["window-controls-overlay", "standalone"],
+  "categories": [
+    "backrooms",
+    "levels",
+    "entities",
+    "groups",
+    "objects",
+    "wiki",
+    "database",
+    "liminal",
+    "comunity"
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+backrooms",
+      "url": "/?url=%s"
+    }
+  ]
 }
