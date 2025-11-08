@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <main>
-      <div>{t("test")}</div>
+      <h1>{t("test")}</h1>
     </main>
   )
 }
