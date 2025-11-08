@@ -6,6 +6,7 @@ import "@/styles/fonts.css"
 import { notFound } from "next/navigation"
 import { hasLocale, NextIntlClientProvider } from "next-intl"
 import { routing } from "@/i18n/routing"
+import { Navbar } from "@/components/Navbar"
 
 export const metadata: Metadata = {
   title: "Backrooms",
@@ -55,9 +56,9 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geist.variable} ${orbitron.variable} ${geist.className}`}>
+        className={`${geist.variable} ${orbitron.variable} ${geist.className} bg-accent`}>
         <NextIntlClientProvider locale={locale}>
-          {" "}
+          <Navbar />
           {children}
         </NextIntlClientProvider>
       </body>

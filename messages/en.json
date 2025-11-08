@@ -1,5 +1,69 @@
 {
-  "home": {
-    "test": "Hello World!"
-  }
+    "components": {
+        "navigationMenu": {
+            "explore": {
+                "archives": {
+                    "description": "History and documentation database",
+                    "title": "Archives"
+                },
+                "community": {
+                    "description": "Get information from other explorers",
+                    "title": "Community"
+                },
+                "home": {
+                    "description": "Explore the Backrooms universe",
+                    "title": "Home Page"
+                },
+                "key": "Explore",
+                "sandbox": {
+                    "description": "Space for testing and experimentation",
+                    "title": "Sandbox"
+                }
+            },
+            "library": {
+                "canons": {
+                    "title": "Canons",
+                    "description": "Different narratives and universes"
+                },
+                "entities": {
+                    "description": "Catalog of entities and creatures",
+                    "title": "Entities"
+                },
+                "groups": {
+                    "description": "Organizations within the Backrooms",
+                    "title": "Groups"
+                },
+                "key": "Library",
+                "levels": {
+                    "description": "Explore all documented levels",
+                    "title": "Levels"
+                },
+                "objects": {
+                    "description": "Unique items and artifacts found",
+                    "title": "Objects"
+                }
+            },
+            "rules": {
+                "rules": {
+                    "title": "Rules"
+                },
+                "guides": {
+                    "title": "Guides"
+                },
+                "faq": {
+                    "title": "FAQ"
+                },
+                "key": "Rules and guides",
+                "staff": {
+                    "title": "Staff"
+                },
+                "discord": {
+                    "title": "Discord"
+                }
+            }
+        }
+    },
+    "home": {
+        "test": "Hello World!"
+    }
 }

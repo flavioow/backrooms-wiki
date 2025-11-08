@@ -1,5 +1,69 @@
 {
-  "home": {
-    "test": "¡Hola Mundo!"
-  }
+    "components": {
+        "navigationMenu": {
+            "explore": {
+                "archives": {
+                    "description": "Base de datos de historia y documentación",
+                    "title": "Archivos"
+                },
+                "community": {
+                    "description": "Obtén información de otros exploradores",
+                    "title": "Comunidad"
+                },
+                "home": {
+                    "description": "Explora el universo de las Backrooms",
+                    "title": "Página de inicio"
+                },
+                "key": "Explorar",
+                "sandbox": {
+                    "description": "Espacio para pruebas y experimentación",
+                    "title": "Caja de arena"
+                }
+            },
+            "library": {
+                "canons": {
+                    "title": "Cánones",
+                    "description": "Diferentes narrativas y universos"
+                },
+                "entities": {
+                    "description": "Catálogo de entidades y criaturas",
+                    "title": "Entidades"
+                },
+                "groups": {
+                    "description": "Organizaciones dentro de los Backrooms",
+                    "title": "Grupos"
+                },
+                "key": "Biblioteca",
+                "levels": {
+                    "description": "Explora todos los niveles documentados",
+                    "title": "Niveles"
+                },
+                "objects": {
+                    "description": "Objetos y artefactos únicos encontrados",
+                    "title": "Objetos"
+                }
+            },
+            "rules": {
+                "rules": {
+                    "title": "Reglas"
+                },
+                "guides": {
+                    "title": "Guías"
+                },
+                "faq": {
+                    "title": "FAQ"
+                },
+                "key": "Reglas y guías",
+                "staff": {
+                    "title": "Staff"
+                },
+                "discord": {
+                    "title": "Discord"
+                }
+            }
+        }
+    },
+    "home": {
+        "test": "¡Hola Mundo!"
+    }
 }

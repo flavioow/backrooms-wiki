@@ -1,8 +1,8 @@
-FROM oven/bun:1 as base
+FROM oven/bun:debian
 WORKDIR /app
 
-COPY package.json bun.lockb ./
-RUN bun install
+COPY package.json ./
+RUN bun install --no-cache
 
 COPY . .
 

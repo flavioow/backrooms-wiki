@@ -1,5 +1,69 @@
 {
-  "home": {
-    "test": "Hallo Welt!"
-  }
+    "components": {
+        "navigationMenu": {
+            "explore": {
+                "archives": {
+                    "description": "Geschichts- und Dokumentationsdatenbank",
+                    "title": "Archive"
+                },
+                "community": {
+                    "description": "Information von anderen Erkundern erhalten",
+                    "title": "Gemeinschaft"
+                },
+                "home": {
+                    "description": "Erkunde das Backrooms-Universum",
+                    "title": "Startseite"
+                },
+                "key": "Erforschen",
+                "sandbox": {
+                    "description": "Raum für Tests und Experimente",
+                    "title": "Sandbox"
+                }
+            },
+            "library": {
+                "canons": {
+                    "title": "Kanonen",
+                    "description": "Unterschiedliche Erzählungen und Universen"
+                },
+                "entities": {
+                    "description": "Katalog der Entitäten und Kreaturen",
+                    "title": "Entitäten"
+                },
+                "groups": {
+                    "description": "Organisationen innerhalb der Backrooms",
+                    "title": "Gruppen"
+                },
+                "key": "Bibliothek",
+                "levels": {
+                    "description": "Erkunde alle dokumentierten Ebenen",
+                    "title": "Ebenen"
+                },
+                "objects": {
+                    "description": "Einzigartige Gegenstände und Artefakte gefunden",
+                    "title": "Objekte"
+                }
+            },
+            "rules": {
+                "rules": {
+                    "title": "Regeln"
+                },
+                "guides": {
+                    "title": "Leitfäden"
+                },
+                "faq": {
+                    "title": "FAQ"
+                },
+                "key": "Regeln und Anleitungen",
+                "staff": {
+                    "title": "Mitarbeiter"
+                },
+                "discord": {
+                    "title": "Discord"
+                }
+            }
+        }
+    },
+    "home": {
+        "test": "Hallo Welt!"
+    }
 }

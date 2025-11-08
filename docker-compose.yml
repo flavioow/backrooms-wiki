@@ -4,7 +4,12 @@ services:
     container_name: backrooms-wiki
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
     environment:
       - NODE_ENV=development
+    volumes:
+      # Monta o projeto todo, mas...
+      - .:/app:delegated
+      # ...“anula” essas duas pastas (elas ficam isoladas no container)
+      - /app/node_modules
+      - /app/.next
+    command: bun run dev
