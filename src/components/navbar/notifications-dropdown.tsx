@@ -1,8 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Settings, Check } from "lucide-react"
+import * as Icons from "lucide-react"
+import { Settings, Check, Bell } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Button } from "../ui/button"
 
 type NotificationTab = "geral" | "artigos" | "amizades"
 type NotificationCategory = "avisos" | "forum" | "edicao" | "conquista" | "amizade"
@@ -16,12 +18,12 @@ interface Notification {
   tabs: NotificationTab[]
 }
 
-const categoryIcons: Record<NotificationCategory, string> = {
-  avisos: "📢",
-  forum: "💬",
-  edicao: "✏️",
-  conquista: "🏅",
-  amizade: "👥",
+const categoryIcons: Record<NotificationCategory, keyof typeof Icons> = {
+  avisos: "Megaphone",
+  forum: "MessageCircle",
+  edicao: "Pencil",
+  conquista: "CircleStar",
+  amizade: "Users",
 }
 
 const notifications: Notification[] = [
@@ -67,12 +69,15 @@ const notifications: Notification[] = [
   },
 ]
 
+type LucideIconComponent = React.ForwardRefExoticComponent<
+  Omit<React.SVGProps<SVGSVGElement>, "ref"> & React.RefAttributes<SVGSVGElement>
+>
+
 export function NotificationsDropdown() {
   const [activeTab, setActiveTab] = useState<NotificationTab>("geral")
   const [notifs, setNotifs] = useState(notifications)
 
   const filteredNotifications = notifs.filter((n) => n.tabs.includes(activeTab))
-
   const unreadCount = notifs.filter((n) => !n.read && n.tabs.includes(activeTab)).length
 
   const markAllAsRead = () => {
@@ -82,53 +87,42 @@ export function NotificationsDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="p-2 hover:bg-muted/50 rounded-lg transition-colors relative">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="text-foreground"
-          >
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-          </svg>
+        <Button variant="ghost" size="icon" className="relative">
+          <Bell className="text-foreground" />
           {unreadCount > 0 && <span className="absolute top-1 right-1 h-2 w-2 bg-accent rounded-full" />}
-        </button>
+        </Button>
       </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end" className="w-96 p-0">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+        {/* Header */}
+        <div className="flex flex-col px-6 py-4 border-b border-border">
           <h2 className="text-lg font-semibold">Notificações</h2>
           <div className="flex items-center gap-2">
-            <button
-              onClick={markAllAsRead}
-              className="flex items-center gap-1 text-xs text-accent hover:text-accent/80 transition-colors"
-            >
+            <Button onClick={markAllAsRead} variant="link">
               <Check size={14} />
               Marcar todas como lidas
-            </button>
-            <button className="p-1.5 hover:bg-muted/50 rounded transition-colors">
+            </Button>
+            <Button variant="ghost" size="icon">
               <Settings size={16} className="text-muted-foreground" />
-            </button>
+            </Button>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-0 border-b border-border px-6">
+        <div className="grid grid-cols-3 gap-4 border-b border-border px-6 py-2">
           {(["geral", "artigos", "amizades"] as NotificationTab[]).map((tab) => (
-            <button
+            <Button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-3 py-3 border-b-2 text-sm font-medium transition-colors capitalize ${
+              variant="ghost"
+              className={`capitalize ${
                 activeTab === tab
-                  ? "border-accent text-foreground"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
+                  ? "text-accent hover:text-accent font-bold"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {tab}
-            </button>
+            </Button>
           ))}
         </div>
 
@@ -137,28 +131,36 @@ export function NotificationsDropdown() {
           {filteredNotifications.length === 0 ? (
             <div className="px-6 py-8 text-center text-muted-foreground text-sm">Nenhuma notificação</div>
           ) : (
-            filteredNotifications.map((notif) => (
-              <div
-                key={notif.id}
-                className={`px-6 py-3 border-b border-border/50 hover:bg-muted/30 transition-colors last:border-b-0 ${
-                  !notif.read ? "bg-muted/20" : ""
-                }`}
-              >
-                <div className="flex gap-3">
-                  <span className="text-xl flex-shrink-0">{categoryIcons[notif.category]}</span>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-semibold text-accent uppercase">{notif.category}</span>
-                      <span className="text-xs text-muted-foreground">{notif.time}</span>
+            filteredNotifications.map((notif) => {
+              const IconName = categoryIcons[notif.category]
+              const Icon = Icons[IconName] as LucideIconComponent
+
+              return (
+                <div
+                  key={notif.id}
+                  className={`px-6 py-3 border-b border-border/50 hover:bg-muted/30 transition-colors last:border-b-0 ${
+                    !notif.read ? "bg-muted/20" : ""
+                  }`}
+                >
+                  <div className="flex gap-3">
+                    <span className="text-xl flex-shrink-0">
+                      {Icon ? <Icon className="text-muted-foreground" /> : <Icons.CircleHelp />}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-semibold text-accent uppercase">{notif.category}</span>
+                        <span className="text-xs text-muted-foreground">{notif.time}</span>
+                      </div>
+                      <p className="text-sm text-foreground mt-1">{notif.title}</p>
                     </div>
-                    <p className="text-sm text-foreground mt-1">{notif.title}</p>
                   </div>
                 </div>
-              </div>
-            ))
+              )
+            })
           )}
         </div>
 
+        {/* Footer */}
         <div className="px-6 py-3 border-t border-border text-center">
           <a href="#" className="text-xs text-accent hover:underline font-medium">
             Ver todas as notificações
